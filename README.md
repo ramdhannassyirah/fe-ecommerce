@@ -127,5 +127,5 @@ For any questions or feedback, please contact:
 
 - **Name**: [Ramdhan Nassyirah]
 - **Email**: [ramdhannassyirahh@gmail.com]
-- **GitHub**: [[Your GitHub Profile](https://github.com/ramdhannassyirah)]
+- **GitHub**: [(https://github.com/ramdhannassyirah)]
 
