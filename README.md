@@ -125,7 +125,7 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 
 For any questions or feedback, please contact:
 
-- **Name**: [Ramdhan Nassyirah]
-- **Email**: [ramdhannassyirahh@gmail.com]
-- **GitHub**: [(https://github.com/ramdhannassyirah)]
+- **Name**: Ramdhan Nassyirah
+- **Email**: ramdhannassyirahh@gmail.com
+- **GitHub**: https://github.com/ramdhannassyirah
 
