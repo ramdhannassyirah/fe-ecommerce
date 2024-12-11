@@ -1,11 +1,12 @@
 <template>
-  <div
+  <RouterLink
+    :to="`/product/${product.id}`"
     class="w-full max-w-sm bg-white border rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
   >
     <a href="#">
       <img
         class="p-6 rounded-t-lg"
-        src="https://images.unsplash.com/photo-1557683316-973673baf926?fit=crop&w=800&q=80 "
+        :src="product.image"
         alt="product image"
       />
     </a>
@@ -14,7 +15,7 @@
         <h5
           class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white"
         >
-          Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport
+          {{ product.title }}
         </h5>
       </a>
       <div class="flex items-center mt-2.5 mb-5">
@@ -91,5 +92,12 @@
         >
       </div>
     </div>
-  </div>
+  </RouterLink>
 </template>
+<script setup>
+import { RouterLink } from "vue-router";
+
+const props = defineProps({
+  product: Object,
+});
+</script>

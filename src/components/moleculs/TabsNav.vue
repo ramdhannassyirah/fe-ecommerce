@@ -62,7 +62,7 @@
       </li> -->
     </ul>
   </div>
-  <div id="default-styled-tab-content">
+  <div id="default-styled-tab-content" class="overflow-auto h-80">
     <div
       class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800"
       id="styled-profile"
