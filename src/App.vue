@@ -1,5 +1,7 @@
 <script setup>
-import Navbar from "./components/oragnisms/Navbar.vue";
+import Navbar from "./components/common/Navbar.vue";
+import AuthLayouts from "./layouts/AuthLayouts.vue";
+
 </script>
 
 <template>

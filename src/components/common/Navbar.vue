@@ -1,7 +1,7 @@
 <template>
   <nav class="max-w-7xl mx-auto">
     <div class="flex items-center w-full p-4 gap-8">
-      <div class="">
+      <div class="hidden md:flex">
         <a
           href="https://flowbite.com/"
           class="flex items-center space-x-3 rtl:space-x-reverse"
@@ -35,7 +35,7 @@
       </button>
 
       <div class="border bg-blue-600 text-blue-600 h-10 rounded-lg">|</div>
-      <div class="space-x-4">
+      <div v-if="!login" class="space-x-4">
         <ButtonPrimary
           name="Masuk"
           type="submit"
@@ -47,12 +47,34 @@
           class="border border-blue-600 px-4 py-2 text-blue-600 font-semibold rounded-lg"
         />
       </div>
+      <div v-if="login" class="">
+        <div
+          class="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full ring-2 ring-blue-600 dark:bg-gray-600"
+        >
+          <svg
+            class="absolute w-12 h-12 text-gray-400 -left-1"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        </div>
+      </div>
+      
     </div>
+    
   </nav>
 </template>
 <script setup>
 import { ShoppingCart } from "lucide-vue-next";
+import InputSearch from "../common/InputSearch.vue";
+import ButtonPrimary from "../common/ButtonPrimary.vue";
+import { ref } from "vue";
 
-import InputSearch from "../atoms/InputSearch.vue";
-import ButtonPrimary from "../atoms/ButtonPrimary.vue";
+const login = ref(true)
 </script>

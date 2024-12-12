@@ -12,7 +12,7 @@
     <div class="my-4">
         <Category/>
     </div>
-    <div class="flex gap-4 flex-wrap justify-between px-4 md:px-0 ">
+    <div class="grid md:grid-cols-3 items-center lg:grid-cols-4 gap-4  ">
         <CardProducts v-for="(product, index) in products" :key="index"
         :product="product"
         />
@@ -22,9 +22,9 @@
 
 <script setup>
 import { reactive } from "vue";
-import Hero from "../components/oragnisms/Hero.vue";
-import Category from "../components/moleculs/Category.vue";
-import CardProducts from "../components/moleculs/Card/CardProducts.vue";
+import Hero from "../components/common/Hero.vue";
+import Category from "../components/common/Category.vue";
+import CardProducts from "../components/common/Products/CardProducts.vue";
 
 const products = reactive([
   {
@@ -42,6 +42,16 @@ const products = reactive([
     image: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg",
     title: "Apple Iphone 14",
   },
+  {
+    id:4,
+    image: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg",
+    title: "Sepatu Keren"
+  },
+  {
+    id:4,
+    image: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg",
+title:"Mobil Keren"
+  }
 
 ]);
 </script>
