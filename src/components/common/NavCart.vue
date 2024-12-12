@@ -31,8 +31,8 @@
 </template>
 
 <script setup>
-import ButtonPrimary from "../atoms/ButtonPrimary.vue";
-import InputQuantity from "../atoms/InputQuantity.vue";
+import ButtonPrimary from "../common/ButtonPrimary.vue";
+import InputQuantity from "../common/InputQuantity.vue";
 
 import { onMounted } from 'vue'
 import { initFlowbite } from 'flowbite'

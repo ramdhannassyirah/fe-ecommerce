@@ -1,5 +1,5 @@
 <script setup>
-import RateStar from "../../atoms/RateStar.vue";
+import RateStar from "../../common/RateStar.vue";
 </script>
 <template>
   <div

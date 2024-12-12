@@ -13,7 +13,7 @@
   </div>
 </template>
 <script setup>
-import ButtonPrimary from "../atoms/ButtonPrimary.vue";
-import CardRating from "../moleculs/Card/CardRating.vue";
-import Rate from "../moleculs/Rate.vue";
+import ButtonPrimary from "../common/ButtonPrimary.vue";
+import CardRating from "../common/Card/CardRating.vue";
+import Rate from "./Products/Rate.vue";
 </script>
