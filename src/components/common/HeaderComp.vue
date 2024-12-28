@@ -1,21 +1,63 @@
 <script setup>
 import { RouterLink } from "vue-router";
+import { User, ShoppingCart } from "lucide-vue-next";
+import { ref } from "vue";
+
+const isMenuOpen = ref(false);
 </script>
+
 <template>
   <header>
-    <nav>
-      <div>
-        <h1>SHOP.CO</h1>
+    <nav
+      class="flex justify-between items-center gap-4 max-w-7xl mx-auto my-6 px-4 xl:px-0"
+    >
+      <!-- Logo and Navigation -->
+      <div class="flex items-center gap-6">
+        <div class="flex items-center gap-4">
+          <!-- Hamburger Menu (Visible on Small Screens) -->
+          <div class="md:hidden flex items-center">
+            <button @click="isMenuOpen = !isMenuOpen">
+              <span class="text-2xl font-bold">☰</span>
+            </button>
+          </div>
+          <h1 class="text-3xl font-bold">SHOP.CO</h1>
+        </div>
+        <div class="md:flex gap-4 items-center hidden">
+          <RouterLink to="/">Shop</RouterLink>
+          <RouterLink to="/">On Sale</RouterLink>
+          <RouterLink to="/">New Arrival</RouterLink>
+          <RouterLink to="/">Brands</RouterLink>
+        </div>
       </div>
-      <div class="">
-        <RouterLink to="/"> Shop </RouterLink>
-        <RouterLink to="/"> On Sale </RouterLink>
-        <RouterLink to="/"> New Arrival </RouterLink>
-        <RouterLink to="/"> Brands </RouterLink>
+
+      <!-- Search Bar (Hidden on Small Screens) -->
+      <div class="flex-1 hidden md:block">
+        <input
+          class="bg-slate-200 rounded-full py-1 w-full px-2"
+          placeholder="Cari barang"
+          type="search"
+        />
       </div>
-      <div class="">
-        <input class="bg-slate-200 rounded-full py-1" placeholder="Cari barang" type="search">
+
+      <!-- Icons (Cart and User) -->
+      <div class="flex items-center gap-2">
+        <ShoppingCart />
+        <User />
       </div>
     </nav>
+
+    <!-- Dropdown Menu (Visible when hamburger is clicked) -->
+    <div
+      v-if="isMenuOpen"
+      class="absolute top-20 left-0 right-0 bg-white shadow-lg p-4 md:hidden"
+    >
+      <RouterLink to="/" class="block py-2">Shop</RouterLink>
+      <RouterLink to="/" class="block py-2">On Sale</RouterLink>
+      <RouterLink to="/" class="block py-2">New Arrival</RouterLink>
+      <RouterLink to="/" class="block py-2">Brands</RouterLink>
+    </div>
+
+    <!-- Hero Section -->
+    <Hero />
   </header>
 </template>
