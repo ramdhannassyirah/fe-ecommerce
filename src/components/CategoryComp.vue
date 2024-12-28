@@ -20,7 +20,7 @@
       </div>
 
       <!-- Formal -->
-      <div class="bg-white col-span-1 sm:col-span-2 w-full h-60 rounded-3xl p-6 relative overflow-hidden">
+      <div class="bg-white col-span-2 w-full h-60 rounded-3xl p-6 relative overflow-hidden">
         <h1 class="text-3xl absolute top-8 left-6 z-10 font-semibold">Formal</h1>
         <div class="absolute inset-0">
           <img
@@ -32,7 +32,7 @@
       </div>
 
       <!-- Party -->
-      <div class="bg-white col-span-1 sm:col-span-2 lg:col-span-2 w-full h-60 rounded-3xl p-6 relative overflow-hidden">
+      <div class="bg-white col-span-2 w-full h-60 rounded-3xl p-6 relative overflow-hidden">
         <h1 class="text-3xl absolute top-8 left-6 z-10 font-semibold">Party</h1>
         <div class="absolute inset-0">
           <img

@@ -1,6 +1,6 @@
 <script setup>
 import { RouterLink } from "vue-router";
-import { User, ShoppingCart } from "lucide-vue-next";
+import { User, ShoppingCart,Search } from "lucide-vue-next";
 import { ref } from "vue";
 
 const isMenuOpen = ref(false);
@@ -32,11 +32,19 @@ const isMenuOpen = ref(false);
 
       <!-- Search Bar (Hidden on Small Screens) -->
       <div class="flex-1 hidden md:block">
-        <input
-          class="bg-slate-200 rounded-full py-1 w-full px-2"
-          placeholder="Cari barang"
-          type="search"
-        />
+        <div class="relative">
+          <!-- Input Search -->
+          <input
+            class="bg-slate-100 rounded-full py-2 w-full pl-8  outline-none"
+            placeholder="Cari barang"
+            type="search"
+          />
+
+          <!-- Search Icon -->
+          <Search :size="20"
+            class="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-500"
+          />
+        </div>
       </div>
 
       <!-- Icons (Cart and User) -->
