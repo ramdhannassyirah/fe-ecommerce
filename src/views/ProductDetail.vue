@@ -7,23 +7,23 @@
       <!-- Image Section -->
       <div class="flex flex-col gap-4">
         <img
-          src="../../assets/image/hero2.png"
+          src="../assets/image/hero2.png"
           class="w-full h-60 sm:h-80 md:h-96 bg-slate-100 rounded-xl object-cover"
           alt="Main Product Image"
         />
         <div class="flex gap-2 overflow-x-auto">
           <img
-            src="../../assets/image/hero.png"
+            src="../assets/image/hero2.png"
             class="w-24 h-24 sm:w-32 sm:h-32 bg-slate-100 rounded-xl object-cover flex-shrink-0"
             alt="Thumbnail 1"
           />
           <img
-            src="../../assets/image/hero.png"
+            src="../assets/image/hero2.png"
             class="w-24 h-24 sm:w-32 sm:h-32 bg-slate-100 rounded-xl object-cover flex-shrink-0"
             alt="Thumbnail 2"
           />
           <img
-            src="../../assets/image/hero.png"
+            src="../assets/image/hero2.png"
             class="w-24 h-24 sm:w-32 sm:h-32 bg-slate-100 rounded-xl object-cover flex-shrink-0"
             alt="Thumbnail 3"
           />
