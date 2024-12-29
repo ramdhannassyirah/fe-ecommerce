@@ -11,10 +11,13 @@ const router = useRouter();
         alt=""
       />
     </div>
-    <div class="pt-4">
-      <h1 class="text-lg font-bold truncate">T Shirt</h1>
-      <p>bintang</p>
-      <h1 class="font-bold text-lg">$120</h1>
+    <div class="pt-4 flex flex-col gap-1">
+      <h1 class="text-xl font-bold truncate">T Shirt</h1>
+      <div class="flex items-center gap-2">
+        <p class="text-yellow-500">⭐⭐⭐⭐⭐</p>
+        <span class="text-gray-500 text-sm">4.5/5</span>
+      </div>
+      <h1 class="font-bold text-xl">$120</h1>
     </div>
   </RouterLink>
 </template>
