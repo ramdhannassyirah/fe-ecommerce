@@ -1,5 +1,5 @@
 <template>
-    <section class="bg-black py-10 w-full max-w-7xl mx-auto px-6 rounded-3xl">
+    <section class="bg-black py-10 my-12 w-full max-w-7xl mx-auto px-6 rounded-3xl">
       <div class="grid md:grid-cols-3 items-center gap-6">
         <!-- Heading Section -->
         <div class="md:col-span-2 text-center md:text-left">
