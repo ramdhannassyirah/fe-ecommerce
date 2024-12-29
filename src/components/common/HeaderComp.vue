@@ -48,7 +48,7 @@ const isMenuOpen = ref(false);
       </div>
 
       <!-- Icons (Cart and User) -->
-      <div class="flex items-center gap-2">
+      <div class="flex items-center gap-4">
         <ShoppingCart />
         <User />
       </div>
