@@ -4,7 +4,7 @@
                 <div class="space-y-4">
                     <h1 class="text-5xl font-bold">FIND CLOTHES THAT MATCHES YOUR STYLE</h1>
                     <p>Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.</p>
-                    <button class="bg-black  text-white rounded-full py-2 px-8 font-semibold">Shop Now</button>
+                    <button class="px-8 bg-black text-white py-3 rounded-full hover:bg-gray-800">Shop Now</button>
                 </div>
                 <div class="flex flex-wrap gap-4 items-center mt-4">
                     <div class="">

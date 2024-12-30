@@ -23,10 +23,10 @@ const isMenuOpen = ref(false);
           <h1 class="text-3xl font-bold">SHOP.CO</h1>
         </div>
         <div class="md:flex gap-4 items-center hidden">
-          <RouterLink to="/product">Shop</RouterLink>
-          <RouterLink to="/">On Sale</RouterLink>
-          <RouterLink to="/">New Arrival</RouterLink>
-          <RouterLink to="/">Brands</RouterLink>
+          <RouterLink active-class="font-bold" to="/product">Shop</RouterLink>
+          <RouterLink active-class="font-bold" to="/ad">On Sale</RouterLink>
+          <RouterLink active-class="font-bold" to="/adfd">New Arrival</RouterLink>
+          <RouterLink active-class="font-bold" to="/faf">Brands</RouterLink>
         </div>
       </div>
 
@@ -62,10 +62,10 @@ const isMenuOpen = ref(false);
       v-if="isMenuOpen"
       class="absolute top-20 left-0 right-0 bg-white shadow-lg p-4 md:hidden"
     >
-      <RouterLink to="/product" class="block py-2">Shop</RouterLink>
-      <RouterLink to="/" class="block py-2">On Sale</RouterLink>
-      <RouterLink to="/" class="block py-2">New Arrival</RouterLink>
-      <RouterLink to="/" class="block py-2">Brands</RouterLink>
+      <RouterLink active-class="font-bold" to="/product" class="block py-2">Shop</RouterLink>
+      <RouterLink active-class="font-bold" to="/" class="block py-2">On Sale</RouterLink>
+      <RouterLink active-class="font-bold" to="/" class="block py-2">New Arrival</RouterLink>
+      <RouterLink active-class="font-bold" to="/" class="block py-2">Brands</RouterLink>
     </div>
 
   </header>

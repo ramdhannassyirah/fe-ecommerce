@@ -41,7 +41,7 @@ defineProps({
         </svg>
       </li>
       <li class="items-center hidden gap-2 md:flex">
-        <RouterLink
+        <RouterLink active-class="font-bold"
           :to="link"
           class="flex max-w-[20ch] items-center gap-1 truncate whitespace-nowrap text-slate-700 transition-colors hover:text-emerald-500"
         >
