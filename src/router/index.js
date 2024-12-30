@@ -46,6 +46,10 @@ const router = createRouter({
       component: NotFoundView, // Komponen halaman 404
     },
   ],
+  scrollBehavior(to, from, next) {
+    // Pastikan posisi scroll selalu ke atas
+    return { top: 0 };
+  },
 });
 
 export default router;
