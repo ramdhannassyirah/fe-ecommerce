@@ -27,7 +27,7 @@
             <p>Total</p>
             <p>${{ total }}</p>
           </div>
-          <div class="flex items-center gap-2 mb-4">
+          <div class="flex flex-wrap   items-center gap-2 mb-4">
             <input
               type="text"
               placeholder="Add promo code"
