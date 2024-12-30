@@ -66,7 +66,7 @@
 
         <div class="border-b pb-4 space-y-2">
           <p class="font-medium">Choose Size</p>
-          <div class="flex gap-2 items-center">
+          <div class="flex flex-wrap gap-2 items-center">
             <button
               v-for="size in sizes"
               :key="size"
