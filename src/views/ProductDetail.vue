@@ -1,7 +1,7 @@
 <template>
     <section class="max-w-7xl mx-auto px-4">
       <div class="py-4">
-        <BreadCrumbs />
+        <BreadCrumbs link="/" name="Product Detail" />
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <!-- Image Section -->

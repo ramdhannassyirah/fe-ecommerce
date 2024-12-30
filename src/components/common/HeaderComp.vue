@@ -1,6 +1,6 @@
 <script setup>
 import { RouterLink } from "vue-router";
-import { User, ShoppingCart,Search } from "lucide-vue-next";
+import { User, ShoppingCart, Search } from "lucide-vue-next";
 import { ref } from "vue";
 
 const isMenuOpen = ref(false);
@@ -35,13 +35,14 @@ const isMenuOpen = ref(false);
         <div class="relative">
           <!-- Input Search -->
           <input
-            class="bg-slate-100 rounded-full py-2 w-full pl-8  outline-none"
+            class="bg-slate-100 rounded-full py-2 w-full pl-8 outline-none"
             placeholder="Cari barang"
             type="search"
           />
 
           <!-- Search Icon -->
-          <Search :size="20"
+          <Search
+            :size="20"
             class="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-500"
           />
         </div>
@@ -49,7 +50,9 @@ const isMenuOpen = ref(false);
 
       <!-- Icons (Cart and User) -->
       <div class="flex items-center gap-4">
-        <ShoppingCart />
+        <RouterLink to="/cart">
+          <ShoppingCart />
+        </RouterLink>
         <User />
       </div>
     </nav>
@@ -65,7 +68,5 @@ const isMenuOpen = ref(false);
       <RouterLink to="/" class="block py-2">Brands</RouterLink>
     </div>
 
-    <!-- Hero Section -->
-    <Hero />
   </header>
 </template>
