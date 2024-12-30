@@ -1,7 +1,7 @@
 <template>
   <div class="max-w-7xl mx-auto px-4 xl:px-0">
     <div class="py-4">
-      <BreadCrumbs />
+      <BreadCrumbs link="/product" name="Shop" />
     </div>
     <div class="flex flex-col lg:flex-row gap-4 py-4">
       <div class="border rounded-2xl p-6 h-full w-full lg:w-1/4">
@@ -76,5 +76,5 @@ import { ref } from "vue";
 import ProductCard from "@/components/common/Card/ProductCard.vue";
 import BreadCrumbs from "@/components/common/BreadCrumbs.vue";
 
-const priceRange = ref(250);
+const priceRange = ref(20);
 </script>
