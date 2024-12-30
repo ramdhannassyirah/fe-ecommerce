@@ -42,7 +42,7 @@
             </button>
           </div>
           <button
-            class="w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800"
+            class="w-full bg-black text-white py-3 rounded-full hover:bg-gray-800"
           >
             Go to Checkout →
           </button>
