@@ -4,6 +4,7 @@
       <BreadCrumbs link="/product" name="Shop" />
     </div>
     <div class="flex flex-col lg:flex-row gap-4 py-4">
+      <!-- Filter Sidebar -->
       <div class="border rounded-2xl p-6 h-full w-full lg:w-1/4">
         <div class="flex justify-between items-center border-b-2 pb-4">
           <h1 class="text-2xl font-semibold">Filter</h1>
@@ -59,12 +60,12 @@
           </div>
         </div>
       </div>
+
+      <!-- Product List -->
       <div class="w-full flex flex-col items-center md:items-start">
-        <h1 class="text-3xl font-semibold pl-4">Casual</h1>
-        <div
-          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-1 flex-1"
-        >
-          <ProductCard v-for="n in 10" :key="n" />
+        <h1 class="text-3xl font-semibold pl-4">Shop</h1>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-1 flex-1">
+          <ProductCard v-for="product in filteredProducts" :key="product.id" :product="product" />
         </div>
       </div>
     </div>
@@ -72,9 +73,15 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import ProductCard from "@/components/common/Card/ProductCard.vue";
 import BreadCrumbs from "@/components/common/BreadCrumbs.vue";
+import { useProductsStore } from "@/stores/products.js";
 
 const priceRange = ref(20);
+const productsStore = useProductsStore();
+
+const filteredProducts = computed(() => {
+  return productsStore.products.filter(product => product.price <= priceRange.value);
+});
 </script>
