@@ -2,8 +2,16 @@
 import { RouterLink } from "vue-router";
 import { User, ShoppingCart, Search } from "lucide-vue-next";
 import { ref } from "vue";
+import { useProductsStore } from "@/stores/products.js";
 
+const productsStore = useProductsStore();
+const searchQuery = ref(""); // Query pencarian
 const isMenuOpen = ref(false);
+
+// Fungsi untuk memfilter produk langsung di store
+const handleSearch = () => {
+  productsStore.filterProducts(searchQuery.value);
+};
 </script>
 
 <template>
@@ -23,12 +31,14 @@ const isMenuOpen = ref(false);
           <h1 class="text-3xl font-bold">SHOP.CO</h1>
         </div>
         <div class="md:flex gap-4 items-center hidden">
-          <RouterLink :class="{ 'font-bold': $route.path === '/' }" to="/">Home</RouterLink>
+          <RouterLink :class="{ 'font-bold': $route.path === '/' }" to="/"
+            >Home</RouterLink
+          >
           <RouterLink active-class="font-bold" to="/product">Shop</RouterLink>
-          <RouterLink active-class="font-bold" to="/adfd"
+          <RouterLink active-class="font-bold" to="/new-arrival"
             >New Arrival</RouterLink
           >
-          <RouterLink active-class="font-bold" to="/faf">Brands</RouterLink>
+          <RouterLink active-class="font-bold" to="/brands">Brands</RouterLink>
         </div>
       </div>
 
@@ -37,8 +47,10 @@ const isMenuOpen = ref(false);
         <div class="relative">
           <!-- Input Search -->
           <input
-            class="bg-slate-100 rounded-full py-2 w-full pl-8 outline-none"
-            placeholder="Cari barang"
+            v-model="searchQuery"
+            @input="handleSearch"
+            class="bg-slate-100 rounded-full py-2 w-full pl-8 pr-4 outline-none"
+            placeholder="Search for products..."
             type="search"
           />
 
@@ -52,8 +64,13 @@ const isMenuOpen = ref(false);
 
       <!-- Icons (Cart and User) -->
       <div class="flex items-center gap-4">
-        <RouterLink to="/cart">
+        <RouterLink class="relative" to="/cart">
           <ShoppingCart />
+          <span
+            class="absolute -top-2.5 -right-2.5 inline-flex items-center justify-center gap-1 rounded-full border-2 border-white bg-pink-500 px-1.5 text-sm text-white"
+          >
+            3
+          </span>
         </RouterLink>
         <User />
       </div>
@@ -64,16 +81,19 @@ const isMenuOpen = ref(false);
       v-if="isMenuOpen"
       class="absolute top-20 left-0 right-0 bg-white shadow-lg px-4 md:hidden"
     >
-      <RouterLink :class="{ 'font-bold': $route.path === '/' }"  to="/" class="block pb-2"
+      <RouterLink
+        :class="{ 'font-bold': $route.path === '/' }"
+        to="/"
+        class="block pb-2"
         >Home</RouterLink
       >
       <RouterLink active-class="font-bold" to="/product" class="block py-2"
         >Shop</RouterLink
       >
-      <RouterLink active-class="font-bold" to="/wer" class="block py-2"
+      <RouterLink active-class="font-bold" to="/new-arrival" class="block py-2"
         >New Arrival</RouterLink
       >
-      <RouterLink active-class="font-bold" to="/opo" class="block py-2"
+      <RouterLink active-class="font-bold" to="/brands" class="block py-2"
         >Brands</RouterLink
       >
     </div>

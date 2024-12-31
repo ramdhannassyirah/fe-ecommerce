@@ -10,7 +10,7 @@ import { RouterLink } from 'vue-router';
                     <p>Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.</p>
                     <RouterLink to="/product" class="px-8 bg-black inline-flex self-start text-white py-3 rounded-full hover:bg-gray-800">Shop Now</RouterLink>
                 </div>
-                <div class="flex flex-wrap gap-4 items-center mt-4">
+                <div class="flex flex-wrap gap-4 items-center mt-6 ">
                     <div class="">
                         <h1 class="text-2xl font-semibold">200+</h1>
                         <p>International Brands</p>

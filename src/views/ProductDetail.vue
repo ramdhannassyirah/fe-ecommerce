@@ -7,11 +7,11 @@
       <!-- Image Section -->
       <div class="flex flex-col gap-4">
         <img
-          src="../assets/image/hero2.png"
-          class="w-full h-60 sm:h-80 md:h-96 bg-slate-100 rounded-xl object-cover"
+          :src="selectedProduct?.image"
+          class="w-full h-60 sm:h-80 md:h-96 rounded-xl object-contain"
           alt="Main Product Image"
         />
-        <div class="flex gap-2 overflow-x-auto">
+        <div class="flex gap-2 overflow-x-auto py-2">
           <img
             src="../assets/image/hero2.png"
             class="w-24 h-24 sm:w-32 sm:h-32 bg-slate-100 rounded-xl object-cover flex-shrink-0"
@@ -34,32 +34,35 @@
       <div class="flex flex-col gap-4">
         <div class="flex flex-col gap-2 border-b pb-4">
           <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold truncate">
-            One Life Graphic T-shirt
+            {{ selectedProduct?.title || 'Loading...' }}
           </h1>
           <div class="flex items-center gap-2">
-            <p class="text-yellow-500">⭐⭐⭐⭐⭐</p>
-            <span class="text-gray-500 text-sm">4.5/5</span>
+            <div class="text-yellow-500 flex text-xl">
+              <span v-for="(star, index) in generateStars(selectedProduct?.rating?.rate || 0).fullStars" :key="'full-' + index">
+                ★
+              </span>
+              <span v-if="generateStars(selectedProduct?.rating?.rate || 0).halfStar">★</span>
+              <span  v-for="(star, index) in generateStars(selectedProduct?.rating?.rate || 0).emptyStars" :key="'empty-' + index">
+                ☆
+              </span>
+            </div>
+            <span class="text-gray-500 text-sm">{{ selectedProduct?.rating?.rate || '0' }}/5</span>
           </div>
           <div class="flex items-center gap-2">
-            <h1 class="font-bold text-xl sm:text-2xl text-red-500">$260</h1>
+            <h1 class="font-bold text-xl sm:text-2xl text-red-500">${{ selectedProduct?.price || '0.00' }}</h1>
             <span class="line-through text-gray-500">$300</span>
             <span class="text-red-500 text-sm">-40%</span>
           </div>
           <p class="text-gray-600">
-            This graphic t-shirt which is perfect for any occasion. Crafted from
-            a soft and breathable fabric, it offers superior comfort and style.
+            {{ selectedProduct?.description || 'No description available.' }}
           </p>
         </div>
 
         <div class="border-b pb-4 space-y-2">
           <p class="font-medium">Select Colors</p>
           <div class="flex gap-2 items-center">
-            <div
-              class="w-8 h-8 sm:w-10 sm:h-10 bg-green-800 rounded-full border-2 border-black"
-            ></div>
-            <div
-              class="w-8 h-8 sm:w-10 sm:h-10 bg-green-500 rounded-full"
-            ></div>
+            <div class="w-8 h-8 sm:w-10 sm:h-10 bg-green-800 rounded-full border-2 border-black"></div>
+            <div class="w-8 h-8 sm:w-10 sm:h-10 bg-green-500 rounded-full"></div>
             <div class="w-8 h-8 sm:w-10 sm:h-10 bg-blue-900 rounded-full"></div>
           </div>
         </div>
@@ -107,23 +110,19 @@
         </div>
       </div>
     </div>
+
     <div class="my-8">
       <h1 class="text-2xl font-bold">Product Details</h1>
       <p class="text-gray-600 mt-4">
-        This premium t-shirt is made from 100% organic cotton, ensuring both
-        comfort and sustainability. Designed with a modern fit, it features a
-        crew neckline and durable stitching for lasting quality. The unique
-        graphic print is created using eco-friendly inks, making it a perfect
-        choice for eco-conscious consumers. Whether you're dressing up for a
-        casual outing or looking for a comfy option for a lazy day at home, this
-        t-shirt has got you covered.
+        {{ selectedProduct?.description || 'No additional details available.' }}
       </p>
     </div>
+
     <div class="my-10">
       <h1 class="text-4xl font-extrabold text-center">YOU MIGHT ALSO LIKE</h1>
       <div class="overflow-x-auto mt-4 scrollbar-hide">
         <div class="flex gap-4 min-w-max pt-10">
-          <ProductCard v-for="n in 10" :key="n" />
+          <ProductCard v-for="product in filteredProducts" :key="product.id" :product="product" />
         </div>
       </div>
     </div>
@@ -131,15 +130,27 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, computed, onMounted } from "vue";
 import BreadCrumbs from "@/components/common/BreadCrumbs.vue";
 import ProductCard from "@/components/common/Card/ProductCard.vue";
-import { useRouter } from "vue-router";
+import { useProductsStore } from "@/stores/products.js";
+import { useRouter, useRoute } from "vue-router";
 
 const router = useRouter();
+const route = useRoute();
 const count = ref(1);
 const sizes = ["Small", "Medium", "Large", "X-Large"];
 const selectedSize = ref(sizes[0]);
+const productsStore = useProductsStore();
+const productId = route.params.id; // Assume the route has an `id` parameter
+
+const selectedProduct = computed(() => {
+  return productsStore.products.find((product) => product.id === Number(productId));
+});
+
+const filteredProducts = computed(() => {
+  return productsStore.products.filter((product) => product.id !== Number(productId));
+});
 
 const increaseCount = () => {
   count.value++;
@@ -153,5 +164,18 @@ const decreaseCount = () => {
 
 const addCart = () => {
   router.push("/cart");
+};
+
+// Fungsi untuk menghitung jumlah bintang
+const generateStars = (rate) => {
+  const fullStars = Math.floor(rate);
+  const halfStar = rate % 1 >= 0.5;
+  const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
+
+  return {
+    fullStars: Array(fullStars).fill("★"),
+    halfStar: halfStar ? "★" : null,
+    emptyStars: Array(emptyStars).fill("☆"),
+  };
 };
 </script>
